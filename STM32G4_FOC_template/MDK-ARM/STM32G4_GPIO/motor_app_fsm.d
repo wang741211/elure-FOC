@@ -1,0 +1,7 @@
+stm32g4_gpio\motor_app_fsm.o: ..\FOC_MOTORCTRL\motor_app_fsm.c
+stm32g4_gpio\motor_app_fsm.o: ..\FOC_MOTORCTRL\motor_app_fsm.h
+stm32g4_gpio\motor_app_fsm.o: ..\MATLAB\rtwtypes.h
+stm32g4_gpio\motor_app_fsm.o: ..\FOC_MOTORCTRL\motor_hal.h
+stm32g4_gpio\motor_app_fsm.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+stm32g4_gpio\motor_app_fsm.o: ..\FOC_MOTORCTRL\motor_mw_foc.h
+stm32g4_gpio\motor_app_fsm.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

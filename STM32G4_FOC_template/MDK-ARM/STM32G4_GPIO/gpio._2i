@@ -1,0 +1,6 @@
+--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\MATLAB -I ..\FOC_MOTORCTRL
+-I.\RTE\_STM32G4_GPIO
+-IC:\Users\29329\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+-IC:\Users\29329\AppData\Local\Arm\Packs\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include
+-D__UVISION_VERSION="530" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -D__FPU_PRESENT -DARM_MATH_CM4
+-o stm32g4_gpio\gpio.o --omf_browse stm32g4_gpio\gpio.crf --depend stm32g4_gpio\gpio.d --feedback "STM32G4_GPIO\STM32G4_GPIO.fed" "../Core/Src/gpio.c"
