@@ -1725,6 +1725,16 @@
               <FileType>5</FileType>
               <FilePath>..\FOC_MOTORCTRL\motor_mw_foc.h</FilePath>
             </File>
+            <File>
+              <FileName>motor_pll.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FOC_MOTORCTRL\motor_pll.c</FilePath>
+            </File>
+            <File>
+              <FileName>motor_pll.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\FOC_MOTORCTRL\motor_pll.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

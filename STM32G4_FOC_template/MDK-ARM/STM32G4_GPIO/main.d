@@ -43,7 +43,9 @@ stm32g4_gpio\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h
 stm32g4_gpio\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h
 stm32g4_gpio\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h
 stm32g4_gpio\main.o: ..\FOC_MOTORCTRL\motor_app_fsm.h
+stm32g4_gpio\main.o: ..\FOC_MOTORCTRL\motor_mw_foc.h
 stm32g4_gpio\main.o: ..\MATLAB\rtwtypes.h
+stm32g4_gpio\main.o: ..\FOC_MOTORCTRL\motor_pll.h
 stm32g4_gpio\main.o: ../Core/Src/sys_config.h
 stm32g4_gpio\main.o: ../Core/Inc/usart.h
 stm32g4_gpio\main.o: ../Core/Inc/fdcan.h

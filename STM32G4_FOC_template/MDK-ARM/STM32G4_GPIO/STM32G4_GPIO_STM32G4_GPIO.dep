@@ -1,7 +1,7 @@
 Dependencies for Project 'STM32G4_GPIO', Target 'STM32G4_GPIO': (DO NOT MODIFY !)
 CompilerVersion: 5060750::V5.06 update 6 (build 750)::.\ARMCC
 F (startup_stm32g431xx.s)(0x663479D8)(--cpu Cortex-M4.fp.sp -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_STM32G4_GPIO-IC:\Users\29329\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\29329\AppData\Local\Arm\Packs\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include--pd "__UVISION_VERSION SETA 530" --pd "_RTE_ SETA 1" --pd "STM32G431xx SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32g431xx.lst --xref -o stm32g4_gpio\startup_stm32g431xx.o --depend stm32g4_gpio\startup_stm32g431xx.d)
-F (../Core/Src/main.c)(0x69EE1B3A)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\MATLAB -I ..\FOC_MOTORCTRL-I.\RTE\_STM32G4_GPIO-IC:\Users\29329\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\29329\AppData\Local\Arm\Packs\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -D__FPU_PRESENT -DARM_MATH_CM4-o stm32g4_gpio\main.o --omf_browse stm32g4_gpio\main.crf --depend stm32g4_gpio\main.d)
+F (../Core/Src/main.c)(0x6A0B29BE)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\MATLAB -I ..\FOC_MOTORCTRL-I.\RTE\_STM32G4_GPIO-IC:\Users\29329\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\29329\AppData\Local\Arm\Packs\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -D__FPU_PRESENT -DARM_MATH_CM4-o stm32g4_gpio\main.o --omf_browse stm32g4_gpio\main.crf --depend stm32g4_gpio\main.d)
 I (../Core/Inc/main.h)(0x663479D4)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x61C19CF8)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x663479D4)
@@ -44,8 +44,10 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h)(0x61C19CF8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h)(0x61C19CF8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h)(0x61C19CF8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x61C19CF8)
-I (..\FOC_MOTORCTRL\motor_app_fsm.h)(0x69EDDF17)
+I (..\FOC_MOTORCTRL\motor_app_fsm.h)(0x6A0B279D)
+I (..\FOC_MOTORCTRL\motor_mw_foc.h)(0x6A0B25CC)
 I (..\MATLAB\rtwtypes.h)(0x6634BCA4)
+I (..\FOC_MOTORCTRL\motor_pll.h)(0x6A0B25C5)
 I (../Core/Src/sys_config.h)(0x69EDE239)
 I (../Core/Inc/usart.h)(0x663479D4)
 I (../Core/Inc/fdcan.h)(0x663479D4)
@@ -95,7 +97,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h)(0x61C19CF8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h)(0x61C19CF8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h)(0x61C19CF8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x61C19CF8)
-F (../Core/Src/adc.c)(0x69EDDE6A)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\MATLAB -I ..\FOC_MOTORCTRL-I.\RTE\_STM32G4_GPIO-IC:\Users\29329\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\29329\AppData\Local\Arm\Packs\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -D__FPU_PRESENT -DARM_MATH_CM4-o stm32g4_gpio\adc.o --omf_browse stm32g4_gpio\adc.crf --depend stm32g4_gpio\adc.d)
+F (../Core/Src/adc.c)(0x6A0B0FD5)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\MATLAB -I ..\FOC_MOTORCTRL-I.\RTE\_STM32G4_GPIO-IC:\Users\29329\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\29329\AppData\Local\Arm\Packs\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -D__FPU_PRESENT -DARM_MATH_CM4-o stm32g4_gpio\adc.o --omf_browse stm32g4_gpio\adc.crf --depend stm32g4_gpio\adc.d)
 I (../Core/Inc/adc.h)(0x663479D2)
 I (../Core/Inc/main.h)(0x663479D4)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x61C19CF8)
@@ -359,7 +361,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h)(0x61C19CF8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h)(0x61C19CF8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h)(0x61C19CF8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x61C19CF8)
-F (../Core/Src/tim.c)(0x69EDDE69)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\MATLAB -I ..\FOC_MOTORCTRL-I.\RTE\_STM32G4_GPIO-IC:\Users\29329\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\29329\AppData\Local\Arm\Packs\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -D__FPU_PRESENT -DARM_MATH_CM4-o stm32g4_gpio\tim.o --omf_browse stm32g4_gpio\tim.crf --depend stm32g4_gpio\tim.d)
+F (../Core/Src/tim.c)(0x6A09D390)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\MATLAB -I ..\FOC_MOTORCTRL-I.\RTE\_STM32G4_GPIO-IC:\Users\29329\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\29329\AppData\Local\Arm\Packs\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -D__FPU_PRESENT -DARM_MATH_CM4-o stm32g4_gpio\tim.o --omf_browse stm32g4_gpio\tim.crf --depend stm32g4_gpio\tim.d)
 I (../Core/Inc/tim.h)(0x663479D4)
 I (../Core/Inc/main.h)(0x663479D4)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x61C19CF8)
@@ -587,7 +589,9 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x61C19CF8)
 I (..\MATLAB\rtwtypes.h)(0x6634BCA4)
 I (../Core/Inc/fdcan.h)(0x663479D4)
 I (../Core/Inc/usart.h)(0x663479D4)
-I (..\FOC_MOTORCTRL\motor_app_fsm.h)(0x69EDDF17)
+I (..\FOC_MOTORCTRL\motor_app_fsm.h)(0x6A0B279D)
+I (..\FOC_MOTORCTRL\motor_mw_foc.h)(0x6A0B25CC)
+I (..\FOC_MOTORCTRL\motor_pll.h)(0x6A0B25C5)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
 F (..\Core\Src\sys_config.h)(0x69EDE239)()
 F (../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c)(0x61C19CF8)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\MATLAB -I ..\FOC_MOTORCTRL-I.\RTE\_STM32G4_GPIO-IC:\Users\29329\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\29329\AppData\Local\Arm\Packs\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -D__FPU_PRESENT -DARM_MATH_CM4-o stm32g4_gpio\stm32g4xx_hal_adc.o --omf_browse stm32g4_gpio\stm32g4xx_hal_adc.crf --depend stm32g4_gpio\stm32g4xx_hal_adc.d)
@@ -1691,16 +1695,57 @@ I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E53505C)
 I (C:\Keil_v5\ARM\ARMCC\include\float.h)(0x5E53505C)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5E53505A)
 I (..\MATLAB\rtwtypes.h)(0x6634BCA4)
-F (..\FOC_MOTORCTRL\motor_app_fsm.c)(0x69EDDF15)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\MATLAB -I ..\FOC_MOTORCTRL-I.\RTE\_STM32G4_GPIO-IC:\Users\29329\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\29329\AppData\Local\Arm\Packs\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -D__FPU_PRESENT -DARM_MATH_CM4-o stm32g4_gpio\motor_app_fsm.o --omf_browse stm32g4_gpio\motor_app_fsm.crf --depend stm32g4_gpio\motor_app_fsm.d)
-I (..\FOC_MOTORCTRL\motor_app_fsm.h)(0x69EDDF17)
+F (..\FOC_MOTORCTRL\motor_app_fsm.c)(0x6A0B2A59)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\MATLAB -I ..\FOC_MOTORCTRL-I.\RTE\_STM32G4_GPIO-IC:\Users\29329\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\29329\AppData\Local\Arm\Packs\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -D__FPU_PRESENT -DARM_MATH_CM4-o stm32g4_gpio\motor_app_fsm.o --omf_browse stm32g4_gpio\motor_app_fsm.crf --depend stm32g4_gpio\motor_app_fsm.d)
+I (..\FOC_MOTORCTRL\motor_app_fsm.h)(0x6A0B279D)
+I (..\FOC_MOTORCTRL\motor_mw_foc.h)(0x6A0B25CC)
 I (..\MATLAB\rtwtypes.h)(0x6634BCA4)
-I (..\FOC_MOTORCTRL\motor_hal.h)(0x69EDDF1A)
+I (..\FOC_MOTORCTRL\motor_pll.h)(0x6A0B25C5)
+I (..\FOC_MOTORCTRL\motor_hal.h)(0x6A0B25D1)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
-I (..\FOC_MOTORCTRL\motor_mw_foc.h)(0x69EDDF1D)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x61C19CF8)
+I (../Core/Inc/stm32g4xx_hal_conf.h)(0x663479D4)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h)(0x61C19CF8)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h)(0x61C19CF6)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h)(0x61C19CF6)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x61C19CF8)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x61C19CF8)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x61C19CF8)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x61C19CF8)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x61C19CF8)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h)(0x61C19CF6)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x61C19CF8)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E53505C)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc_ex.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio_ex.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma_ex.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_adc.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc_ex.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_comp.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_exti.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dac.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dac_ex.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_exti.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fdcan.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ramfunc.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_opamp.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_opamp_ex.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h)(0x61C19CF8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x61C19CF8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5E53505A)
-F (..\FOC_MOTORCTRL\motor_app_fsm.h)(0x69EDDF17)()
-F (..\FOC_MOTORCTRL\motor_hal.c)(0x69EDDF18)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\MATLAB -I ..\FOC_MOTORCTRL-I.\RTE\_STM32G4_GPIO-IC:\Users\29329\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\29329\AppData\Local\Arm\Packs\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -D__FPU_PRESENT -DARM_MATH_CM4-o stm32g4_gpio\motor_hal.o --omf_browse stm32g4_gpio\motor_hal.crf --depend stm32g4_gpio\motor_hal.d)
-I (..\FOC_MOTORCTRL\motor_hal.h)(0x69EDDF1A)
+F (..\FOC_MOTORCTRL\motor_app_fsm.h)(0x6A0B279D)()
+F (..\FOC_MOTORCTRL\motor_hal.c)(0x6A0B25D3)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\MATLAB -I ..\FOC_MOTORCTRL-I.\RTE\_STM32G4_GPIO-IC:\Users\29329\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\29329\AppData\Local\Arm\Packs\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -D__FPU_PRESENT -DARM_MATH_CM4-o stm32g4_gpio\motor_hal.o --omf_browse stm32g4_gpio\motor_hal.crf --depend stm32g4_gpio\motor_hal.d)
+I (..\FOC_MOTORCTRL\motor_hal.h)(0x6A0B25D1)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
 I (..\MATLAB\rtwtypes.h)(0x6634BCA4)
 I (../Core/Inc/main.h)(0x663479D4)
@@ -1749,9 +1794,28 @@ I (../Core/Inc/tim.h)(0x663479D4)
 I (../Core/Inc/dac.h)(0x663479D2)
 I (../Core/Inc/opamp.h)(0x663479D4)
 I (../Core/Inc/comp.h)(0x663479D2)
-F (..\FOC_MOTORCTRL\motor_hal.h)(0x69EDDF1A)()
-F (..\FOC_MOTORCTRL\motor_mw_foc.c)(0x69EDDF1B)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\MATLAB -I ..\FOC_MOTORCTRL-I.\RTE\_STM32G4_GPIO-IC:\Users\29329\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\29329\AppData\Local\Arm\Packs\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -D__FPU_PRESENT -DARM_MATH_CM4-o stm32g4_gpio\motor_mw_foc.o --omf_browse stm32g4_gpio\motor_mw_foc.crf --depend stm32g4_gpio\motor_mw_foc.d)
-I (..\FOC_MOTORCTRL\motor_mw_foc.h)(0x69EDDF1D)
+F (..\FOC_MOTORCTRL\motor_hal.h)(0x6A0B25D1)()
+F (..\FOC_MOTORCTRL\motor_mw_foc.c)(0x6A0B25CD)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\MATLAB -I ..\FOC_MOTORCTRL-I.\RTE\_STM32G4_GPIO-IC:\Users\29329\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\29329\AppData\Local\Arm\Packs\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -D__FPU_PRESENT -DARM_MATH_CM4-o stm32g4_gpio\motor_mw_foc.o --omf_browse stm32g4_gpio\motor_mw_foc.crf --depend stm32g4_gpio\motor_mw_foc.d)
+I (..\FOC_MOTORCTRL\motor_mw_foc.h)(0x6A0B25CC)
 I (..\MATLAB\rtwtypes.h)(0x6634BCA4)
+I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x64F975B8)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x61C19CF8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x61C19CF8)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x61C19CF8)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x61C19CF8)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5E53505A)
-F (..\FOC_MOTORCTRL\motor_mw_foc.h)(0x69EDDF1D)()
+F (..\FOC_MOTORCTRL\motor_mw_foc.h)(0x6A0B25CC)()
+F (..\FOC_MOTORCTRL\motor_pll.c)(0x6A0B25CB)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\MATLAB -I ..\FOC_MOTORCTRL-I.\RTE\_STM32G4_GPIO-IC:\Users\29329\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\29329\AppData\Local\Arm\Packs\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -D__FPU_PRESENT -DARM_MATH_CM4-o stm32g4_gpio\motor_pll.o --omf_browse stm32g4_gpio\motor_pll.crf --depend stm32g4_gpio\motor_pll.d)
+I (..\FOC_MOTORCTRL\motor_pll.h)(0x6A0B25C5)
+I (..\MATLAB\rtwtypes.h)(0x6634BCA4)
+I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x64F975B8)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x61C19CF8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x61C19CF8)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x61C19CF8)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x61C19CF8)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
+I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5E53505A)
+F (..\FOC_MOTORCTRL\motor_pll.h)(0x6A0B25C5)()

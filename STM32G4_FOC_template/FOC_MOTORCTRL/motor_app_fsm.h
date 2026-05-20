@@ -1,7 +1,8 @@
 #ifndef MOTOR_APP_FSM_H
 #define MOTOR_APP_FSM_H
-
+#include "motor_mw_foc.h"
 #include "rtwtypes.h"
+#include "motor_pll.h"
 
 /* * 电机运行状态机枚举
  * 严格对应原 Simulink 模型中的四种状态
@@ -27,8 +28,14 @@ void Motor_APP_Stop(void);
  */
 void Motor_APP_Task_10kHz(void);
 
+void Motor_VF_Spin_Test(void);
+
 /* 获取当前状态机状态 (可供串口或 CAN 状态上报使用) */
 Motor_APP_State_e Motor_APP_GetState(void);
+
+extern  FOC_Input_t foc_in;
+extern  FOC_Output_t foc_out;
+extern  SRF_PLL_t bemf_pll;
 
 #endif /* MOTOR_APP_FSM_H */
 

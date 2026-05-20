@@ -34,9 +34,9 @@ void MX_TIM1_Init(void)
   /* USER CODE END TIM1_Init 1 */
   
   htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 1-1;                                      /* 不分频，使用最高系统主频 (如160MHz或170MHz) */
+  htim1.Init.Prescaler = 1-1;                                      /* 不分频，使用最高系统主频 (170MHz) */
   htim1.Init.CounterMode = TIM_COUNTERMODE_CENTERALIGNED1;         /* 采用中心对齐模式 1 (三角波计数)，保障电流波形对称 */
-  htim1.Init.Period = 7999;                                        /* 载波周期计数值，决定了 PWM 的基准频率 (例如 10kHz) */
+  htim1.Init.Period = 8499;                                        /* 载波周期计数值，决定了 PWM 的基准频率  */
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV2;               /* 死区时间发生器的时钟分频 */
   htim1.Init.RepetitionCounter = 1;                                /* 重复计数器：设为 1 表示每经历 1 个完整上下溢出周期产生一次更新事件 */
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;   /* 禁用自动重装载预装载 */
@@ -110,7 +110,7 @@ void MX_TIM1_Init(void)
    * ==============================================================================
    */
   sConfigOC.OCMode = TIM_OCMODE_PWM2;
-  sConfigOC.Pulse = 7998;
+  sConfigOC.Pulse = 8498;
   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
   {
     Error_Handler();

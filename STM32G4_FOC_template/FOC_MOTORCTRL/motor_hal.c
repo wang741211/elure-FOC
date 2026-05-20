@@ -58,6 +58,9 @@ void Motor_HAL_Init(void)
 
     /* 启动定时器主计数器 */
     HAL_TIM_Base_Start(&htim1);
+    
+    /* 启动TIM1 CH4 PWM输出 - 这是触发ADC注入组转换的关键！ */
+    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
 }
 
 /**

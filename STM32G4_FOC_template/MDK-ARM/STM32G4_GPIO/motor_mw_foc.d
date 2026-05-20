@@ -1,4 +1,11 @@
 stm32g4_gpio\motor_mw_foc.o: ..\FOC_MOTORCTRL\motor_mw_foc.c
 stm32g4_gpio\motor_mw_foc.o: ..\FOC_MOTORCTRL\motor_mw_foc.h
 stm32g4_gpio\motor_mw_foc.o: ..\MATLAB\rtwtypes.h
+stm32g4_gpio\motor_mw_foc.o: ../Middlewares/ST/ARM/DSP/Inc/arm_math.h
+stm32g4_gpio\motor_mw_foc.o: ../Drivers/CMSIS/Include/core_cm4.h
+stm32g4_gpio\motor_mw_foc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+stm32g4_gpio\motor_mw_foc.o: ../Drivers/CMSIS/Include/cmsis_version.h
+stm32g4_gpio\motor_mw_foc.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+stm32g4_gpio\motor_mw_foc.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+stm32g4_gpio\motor_mw_foc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 stm32g4_gpio\motor_mw_foc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

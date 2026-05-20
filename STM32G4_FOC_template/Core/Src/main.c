@@ -40,6 +40,8 @@ int main(void)
     /* 3. 调用应用层初始化 (级联初始化 HAL/MW 层) */
     Motor_APP_Init();
 
+    MX_USART3_UART_Init();
+
     /* 4. 调用移出的通讯配置 (位于 sys_config.c) */
     FDCAN_Config();
     extern uint8_t aRxBuffer;
@@ -58,6 +60,7 @@ int main(void)
   * @brief  核心高频中断：ADC 注入组完成 (10kHz)
   * 这是系统中唯一允许保持高频运行的地方
   */
+extern  real32_T theta_elec_est;
 void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
     if(hadc->Instance == ADC1)
@@ -69,11 +72,15 @@ void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef *hadc)
             
         /* 2. 驱动应用层任务 (核心状态机与 FOC) */
         Motor_APP_Task_10kHz();
+				//Motor_VF_Spin_Test();
             
         /* 3. 数据观测 (VOFA+ 上位机泵出) */
-        load_data[0] = HallTheta;
-        load_data[1] = (float)Motor_APP_GetState();
-        load_data[2] = HallSpeed;
+        load_data[0] = foc_in.Ic;
+        load_data[1] = foc_in.Ia;
+        load_data[2] = foc_in.Ib;
+				load_data[3] =theta_elec_est;
+				load_data[4] =foc_in.Iq_Ref;
+	
         memcpy(tempData, (uint8_t *)&load_data, 20);
         HAL_UART_Transmit_DMA(&huart3, tempData, 24); 
     }

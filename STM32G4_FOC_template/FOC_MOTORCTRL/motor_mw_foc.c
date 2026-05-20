@@ -1,4 +1,5 @@
 #include "motor_mw_foc.h"
+#include "arm_math.h"
 #include <math.h>
 
 /* 内部数学常量定义 */
@@ -64,8 +65,12 @@ void Motor_MW_FOC_Init(void)
   */
 void Motor_MW_FOC_Step(const FOC_Input_t *in, FOC_Output_t *out)
 {
-    real32_T sin_theta = sinf(in->Theta_Elec);
-    real32_T cos_theta = cosf(in->Theta_Elec);
+    real32_T sin_theta = arm_sin_f32(in->Theta_Elec);
+    real32_T cos_theta = arm_cos_f32(in->Theta_Elec);
+    real32_T vbus = in->Vbus;
+    if (vbus < 1.0f) {
+        vbus = 1.0f;
+    }
 
     /* * 1. Clarke 变换 (等幅值变换)
      * I_alpha = 2/3 * Ia - 1/3 * (Ib + Ic)
@@ -93,6 +98,8 @@ void Motor_MW_FOC_Step(const FOC_Input_t *in, FOC_Output_t *out)
      */
     real32_T v_alpha = out->Vd * cos_theta - out->Vq * sin_theta;
     real32_T v_beta  = out->Vd * sin_theta + out->Vq * cos_theta;
+    out->V_alpha = v_alpha;
+    out->V_beta = v_beta;
 
     /* * 5. SVPWM 实现 (零序电压注入/马鞍波生成)
      * 先计算三相参考电压
@@ -116,8 +123,53 @@ void Motor_MW_FOC_Step(const FOC_Input_t *in, FOC_Output_t *out)
      * 公式：Duty = (V_ref + V_zero) / Vbus + 0.5
      * 这里的系数乘法与您的硬件极性对应
      */
-    out->Duty_A = (- (va_ref + v_zero) / in->Vbus) + 0.5f;
-    out->Duty_B = (- (vb_ref + v_zero) / in->Vbus) + 0.5f;
-    out->Duty_C = (- (vc_ref + v_zero) / in->Vbus) + 0.5f;
+    out->Duty_A = (- (va_ref + v_zero) / vbus) + 0.5f;
+    out->Duty_B = (- (vb_ref + v_zero) / vbus) + 0.5f;
+    out->Duty_C = (- (vc_ref + v_zero) / vbus) + 0.5f;
 }
 
+void BEMF_Observer_Init(BEMF_Observer_t *obs, float Rs, float Ls, float kp, float ki, float Ts)
+{
+    obs->Rs = Rs;
+    obs->Ls = Ls;
+    obs->kp = kp;
+    obs->ki = ki;
+    obs->Ts = Ts;
+    obs->inv_Ls = (Ls > 0.0f) ? (1.0f / Ls) : 0.0f;
+    obs->Ts_over_Ls = Ts * obs->inv_Ls;
+    obs->ki_Ts = ki * Ts;
+
+    obs->i_alpha_est = 0.0f;
+    obs->i_beta_est = 0.0f;
+    obs->e_alpha_int = 0.0f;
+    obs->e_beta_int = 0.0f;
+    obs->e_alpha_est = 0.0f;
+    obs->e_beta_est = 0.0f;
+}
+
+void BEMF_Observer_Step(BEMF_Observer_t *obs, float v_alpha, float v_beta, float i_alpha, float i_beta)
+{
+    if (!isfinite(v_alpha) || !isfinite(v_beta) || !isfinite(i_alpha) || !isfinite(i_beta) ||
+        !isfinite(obs->i_alpha_est) || !isfinite(obs->i_beta_est) ||
+        !isfinite(obs->e_alpha_int) || !isfinite(obs->e_beta_int)) {
+        obs->i_alpha_est = 0.0f;
+        obs->i_beta_est = 0.0f;
+        obs->e_alpha_int = 0.0f;
+        obs->e_beta_int = 0.0f;
+        obs->e_alpha_est = 0.0f;
+        obs->e_beta_est = 0.0f;
+        return;
+    }
+
+    float i_alpha_err = i_alpha - obs->i_alpha_est;
+    float i_beta_err = i_beta - obs->i_beta_est;
+
+    obs->e_alpha_int += obs->ki_Ts * i_alpha_err;
+    obs->e_beta_int += obs->ki_Ts * i_beta_err;
+
+    obs->e_alpha_est = obs->kp * i_alpha_err + obs->e_alpha_int;
+    obs->e_beta_est = obs->kp * i_beta_err + obs->e_beta_int;
+
+    obs->i_alpha_est += (v_alpha - obs->Rs * obs->i_alpha_est - obs->e_alpha_est) * obs->Ts_over_Ls;
+    obs->i_beta_est += (v_beta - obs->Rs * obs->i_beta_est - obs->e_beta_est) * obs->Ts_over_Ls;
+}
