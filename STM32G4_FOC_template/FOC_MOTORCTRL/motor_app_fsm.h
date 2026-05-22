@@ -3,6 +3,8 @@
 #include "motor_mw_foc.h"
 #include "rtwtypes.h"
 #include "motor_pll.h"
+#include "motor_foc.h"
+
 
 /* * 电机运行状态机枚举
  * 严格对应原 Simulink 模型中的四种状态
@@ -32,9 +34,7 @@ void Motor_VF_Spin_Test(void);
 
 /* 获取当前状态机状态 (可供串口或 CAN 状态上报使用) */
 Motor_APP_State_e Motor_APP_GetState(void);
-
-extern  FOC_Input_t foc_in;
-extern  FOC_Output_t foc_out;
+extern 	MC_Foc_Vars_t   g_foc_vars;
 extern  SRF_PLL_t bemf_pll;
 
 #endif /* MOTOR_APP_FSM_H */

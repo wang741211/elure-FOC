@@ -18,6 +18,9 @@
 #include <stdio.h>
 #include <string.h>
 #include "FOC_Model.h"
+#include <rtthread.h>
+/* 引入我们在上面定义的 TIM6 句柄 */
+extern TIM_HandleTypeDef htim6;
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -79,13 +82,13 @@ void NMI_Handler(void)
 /**
   * @brief This function handles Hard fault interrupt.
   * 硬件错误中断 (通常由内存越界、野指针等严重错误引起)
-  */
+
 void HardFault_Handler(void)
 {
   while (1)
   {
   }
-}
+}  */
 
 /**
   * @brief This function handles Memory management fault.
@@ -139,10 +142,10 @@ void DebugMon_Handler(void)
 /**
   * @brief This function handles Pendable request for system service.
   * PendSV 中断 (RTOS 常用于上下文切换)
-  */
+
 void PendSV_Handler(void)
 {
-}
+}  */
 
 /**
   * @brief This function handles System tick timer.
@@ -150,8 +153,57 @@ void PendSV_Handler(void)
   */
 void SysTick_Handler(void)
 {
-  HAL_IncTick();
+ /* * 1. 压入中断上下文栈
+   * 通知 RT-Thread 调度器：当前 CPU 正在处理硬件中断，
+   * 暂时挂起所有普通的线程上下文切换请求。
+   */
+  rt_interrupt_enter();
+
+  /* 2. 推动 OS 心跳状态机 */
+  rt_tick_increase();
+
+  /* * 3. 弹出中断上下文栈
+   * 退出时，如果有被唤醒的高优先级线程，RT-Thread 会在此处挂起 PendSV 异常，
+   * 等待所有硬件中断结束后，在最低优先级的 PendSV 中执行真正的寄存器上下文切换。
+   */
+  rt_interrupt_leave();
 }
+/*
+ * ==============================================================================
+ * 追加部分：HAL 库专属硬件时基处理区 (由 TIM6 负责)
+ * ==============================================================================
+ */
+
+/**
+  * @brief This function handles TIM6 global and DAC underrun error interrupts.
+  * TIM6 全局中断
+  * 专职负责驱动 HAL 库底层硬件的超时机制（如 HAL_Delay, HAL_UART_Transmit 的超时等）
+  */
+void TIM6_DAC_IRQHandler(void)
+{
+  /* * 调用 HAL 库的定时器公共处理函数。
+   * 该函数内部会读取并清除 TIM6 的状态寄存器 (SR) 中的 UIF (Update Interrupt Flag) 标志位，
+   * 防止中断被反复重入，随后会自动调用底层的弱回调函数 HAL_TIM_PeriodElapsedCallback。
+   */
+  HAL_TIM_IRQHandler(&htim6);
+}
+
+/**
+  * @brief 定时器溢出更新回调函数 (HAL_TIM_IRQHandler 会自动调用此函数)
+  * @param htim 定时器句柄指针
+  */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  /* * 严格的条件判断标准：
+   * 因为所有定时器的溢出中断最终都会跑到这个回调里，
+   * 我们必须确认触发该回调的是 TIM6，才去增加 HAL 库的全局时间戳。
+   */
+  if (htim->Instance == TIM6) 
+  {
+    HAL_IncTick();
+  }
+}
+
 
 /******************************************************************************/
 /* STM32G4xx Peripheral Interrupt Handlers                                    */

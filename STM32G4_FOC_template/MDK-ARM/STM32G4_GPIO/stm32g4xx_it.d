@@ -49,3 +49,9 @@ stm32g4_gpio\stm32g4xx_it.o: ..\MATLAB\FOC_Model.h
 stm32g4_gpio\stm32g4xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\float.h
 stm32g4_gpio\stm32g4xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 stm32g4_gpio\stm32g4xx_it.o: ..\MATLAB\rtwtypes.h
+stm32g4_gpio\stm32g4xx_it.o: C:\Users\29329\AppData\Local\Arm\Packs\RealThread\RT-Thread\3.1.5\include\rtthread.h
+stm32g4_gpio\stm32g4xx_it.o: .\RTE\RTOS\rtconfig.h
+stm32g4_gpio\stm32g4xx_it.o: C:\Users\29329\AppData\Local\Arm\Packs\RealThread\RT-Thread\3.1.5\include\rtdebug.h
+stm32g4_gpio\stm32g4xx_it.o: C:\Users\29329\AppData\Local\Arm\Packs\RealThread\RT-Thread\3.1.5\include\rtdef.h
+stm32g4_gpio\stm32g4xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+stm32g4_gpio\stm32g4xx_it.o: C:\Users\29329\AppData\Local\Arm\Packs\RealThread\RT-Thread\3.1.5\include\rtservice.h

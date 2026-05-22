@@ -12,6 +12,7 @@
 #include "sys_config.h"
 #include "usart.h"
 #include "fdcan.h"
+#include "motor_sensor.h"
 #include <string.h>
 #include <stdio.h>
 /* ---------------- 全局变量与外部引用 ---------------- */
@@ -72,14 +73,13 @@ void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef *hadc)
             
         /* 2. 驱动应用层任务 (核心状态机与 FOC) */
         Motor_APP_Task_10kHz();
-				//Motor_VF_Spin_Test();
             
         /* 3. 数据观测 (VOFA+ 上位机泵出) */
-        load_data[0] = foc_in.Ic;
-        load_data[1] = foc_in.Ia;
-        load_data[2] = foc_in.Ib;
-				load_data[3] =theta_elec_est;
-				load_data[4] =foc_in.Iq_Ref;
+				load_data[0] = g_foc_vars.I_alpha;
+        load_data[1] = g_foc_vars.I_beta;
+        load_data[2] = bemf_obs.e_alpha_est;
+        load_data[3] = bemf_obs.e_beta_est; 
+        load_data[4] = g_foc_vars.Theta_Elec;
 	
         memcpy(tempData, (uint8_t *)&load_data, 20);
         HAL_UART_Transmit_DMA(&huart3, tempData, 24); 

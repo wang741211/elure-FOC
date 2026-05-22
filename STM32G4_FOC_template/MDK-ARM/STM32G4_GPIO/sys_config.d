@@ -48,5 +48,7 @@ stm32g4_gpio\sys_config.o: ../Core/Inc/fdcan.h
 stm32g4_gpio\sys_config.o: ../Core/Inc/usart.h
 stm32g4_gpio\sys_config.o: ..\FOC_MOTORCTRL\motor_app_fsm.h
 stm32g4_gpio\sys_config.o: ..\FOC_MOTORCTRL\motor_mw_foc.h
+stm32g4_gpio\sys_config.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 stm32g4_gpio\sys_config.o: ..\FOC_MOTORCTRL\motor_pll.h
+stm32g4_gpio\sys_config.o: ..\FOC_MOTORCTRL\motor_foc.h
 stm32g4_gpio\sys_config.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
